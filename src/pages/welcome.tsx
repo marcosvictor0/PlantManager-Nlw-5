@@ -1,17 +1,18 @@
 import React from 'react';
-import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { SafeAreaView, Text, Image, TouchableOpacity, StyleSheet, Dimensions, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import colors from '/GitHub/PlantManager/my-project/src/pages/styles/colors';
 import wateringImg from '/GitHub/PlantManager/my-project/assets/watering.png';
+import fonts from '/GitHub/PlantManager/my-project/src/pages/styles/fonts';
 
 export function Welcome() {
     return(
         <SafeAreaView style={styles.container}>
-
+            <View style={ styles.wrapper}>
             <Text style={ styles.title }>
                 Gerencie { '\n' }
-                suas plantas { '\n' }
-                de forma fácil{ '\n' }
+                suas plantas de{ '\n' }
+                forma fácil{ '\n' }
             </Text>
 
             <Image 
@@ -27,15 +28,14 @@ export function Welcome() {
 
             <TouchableOpacity 
             style={styles.button} 
-            activeOpacity={0.7}>
-                <Text>
-                    <Entypo 
+            activeOpacity={0.7}
+            >
+                <Entypo 
                     name="chevron-thin-right"
                     style={styles.buttonIcon}
-                    />
-                </Text>
+                />
             </TouchableOpacity>
-
+            </View>
         </SafeAreaView>
     )
 }
@@ -43,16 +43,24 @@ export function Welcome() {
 const styles = StyleSheet.create ({
     container: {
         flex: 1,
+    },
+
+    wrapper: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'space-around',
+        paddingHorizontal: 20,
+
     },
 
     title: {
-        fontSize: 32,
+        fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
         color: colors.heading,
         marginTop: 38,
+        fontFamily: fonts.heading,
+        lineHeight: 36,
     },
 
     subtitle: {
@@ -60,6 +68,7 @@ const styles = StyleSheet.create ({
         fontSize: 18,
         paddingHorizontal: 20,
         color: colors.heading,
+        fontFamily: fonts.text,
     },
 
     image: {
